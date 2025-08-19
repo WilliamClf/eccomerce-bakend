@@ -16,7 +16,7 @@ export class CategoryService {
       return this.repository.find();
     }
 
-    findByID(id: string):Promise<Category> {
+    findByID(id: string):Promise<Category | null> {
       return this.repository.findOneBy({id: id});
     }
 
