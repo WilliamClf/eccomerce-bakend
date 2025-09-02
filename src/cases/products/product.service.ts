@@ -2,6 +2,7 @@ import { Repository } from "typeorm";
 import { Product } from "./product.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Injectable } from "@nestjs/common";
+import { Category } from "../categories/category.entity";
 
 @Injectable() //permite a injeção no controller
 export class ProductService {
@@ -12,8 +13,13 @@ export class ProductService {
     ) {}
 
     //service/provider retorna uma promise
-    findAll(): Promise<Product[]> {
-      return this.repository.find();
+    findAll(category?: Category): Promise<Product[]> {
+      if (!category) {
+        return this.repository.find();
+      } else {
+        return this.repository.find({
+          where: {category: category}});
+      } 
     }
 
     findByID(id: string):Promise<Product | null> {

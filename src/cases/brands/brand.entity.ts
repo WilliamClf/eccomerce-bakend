@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity() //@Entity('brands') -- nesse caso a entidade se chama brand mas 
+@Entity('brands') //@Entity('brands') -- nesse caso a entidade se chama brand mas 
           // a tabela se chama brands
 export class Brand {
     @PrimaryGeneratedColumn('uuid') //framework (typeORM), gerá o id, se caso fosse integer, 

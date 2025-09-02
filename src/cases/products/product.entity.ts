@@ -2,7 +2,7 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Category } from "../categories/category.entity";
 import { Brand } from "../brands/brand.entity";
 
-@Entity() //@Entity('product') -- nesse caso a entidade se chama product mas 
+@Entity('product') //@Entity('product') -- nesse caso a entidade se chama product mas 
           // a tabela se chama products
 export class Product {
     @PrimaryGeneratedColumn('uuid') //framework (typeORM), gerá o id, se caso fosse integer, 
